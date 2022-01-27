@@ -1,20 +1,27 @@
 Summary:	Status bar generator for i3bar, dzen2, xmobar or similar programs
 Name:		i3status
-Version:	2.13
+Version:	2.14
 Release:	1
 License:	BSD
 Group:		X11/Window Managers
-Source0:	https://i3wm.org/i3status/%{name}-%{version}.tar.bz2
-# Source0-md5:	dd9001fb9ed732142d4d7194b77486cf
+Source0:	https://i3wm.org/i3status/%{name}-%{version}.tar.xz
+# Source0-md5:	55a4bb05362947947bc93f705f5d71cd
 URL:		https://i3wm.org/i3status/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	asciidoc
-BuildRequires:	autoconf >= 2.69
-BuildRequires:	automake
+BuildRequires:	bash
 BuildRequires:	libconfuse-devel
 BuildRequires:	libnl-devel
+BuildRequires:	meson >= 0.45.0
+BuildRequires:	ninja
+BuildRequires:	perl-base
+BuildRequires:	perl-tools-pod
+BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel
+BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xmlto
+BuildRequires:	xz
 BuildRequires:	yajl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,19 +36,15 @@ being more efficient than shell commands.
 %setup -q
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--disable-builddir \
-	--disable-silent-rules
-%{__make}
+%meson build \
+	-Dmans=true
+
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+
+%ninja_install -C build
 
 %clean
 rm -rf $RPM_BUILD_ROOT
