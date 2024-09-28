@@ -1,11 +1,11 @@
 Summary:	Status bar generator for i3bar, dzen2, xmobar or similar programs
 Name:		i3status
-Version:	2.14
+Version:	2.15
 Release:	1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	https://i3wm.org/i3status/%{name}-%{version}.tar.xz
-# Source0-md5:	55a4bb05362947947bc93f705f5d71cd
+# Source0-md5:	51f19cbb0dc91c831b2e0f1bd3c8448f
 URL:		https://i3wm.org/i3status/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	asciidoc
