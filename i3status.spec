@@ -1,4 +1,5 @@
 Summary:	Status bar generator for i3bar, dzen2, xmobar or similar programs
+Summary(pl.UTF-8):	Generator paska stanu dla programów i3bar, dzen2, xmobar i podobnych
 Name:		i3status
 Version:	2.15
 Release:	1
@@ -32,6 +33,13 @@ as one generally wants to update such status lines every second so
 that the bar is updated even under load. It saves a bit of energy by
 being more efficient than shell commands.
 
+%description -l pl.UTF-8
+i3status to program do generowania paska stanu dla programów i3bar,
+dzen2, xmobar i podobnych. Wykonuje niewielką liczbę wywołań
+systemowych, żeby móc uaktualniać linie stanu w każdej sekundzie,
+nawet przy dużym obciążeniu. Oszczędza trochę energii, będąc
+jednocześnie bardziej wydajnym niż polecenia powłoki.
+
 %prep
 %setup -q
 
@@ -51,6 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}.conf
-%attr(755,root,root) %{_bindir}/%{name}
-%{_mandir}/man*/%{name}.1*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/i3status.conf
+%attr(755,root,root) %{_bindir}/i3status
+%{_mandir}/man1/i3status.1*
