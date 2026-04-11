@@ -2,7 +2,7 @@ Summary:	Status bar generator for i3bar, dzen2, xmobar or similar programs
 Summary(pl.UTF-8):	Generator paska stanu dla programów i3bar, dzen2, xmobar i podobnych
 Name:		i3status
 Version:	2.15
-Release:	1
+Release:	2
 License:	BSD
 Group:		X11/Window Managers
 Source0:	https://i3wm.org/i3status/%{name}-%{version}.tar.xz
