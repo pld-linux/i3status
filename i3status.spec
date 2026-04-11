@@ -12,9 +12,9 @@ BuildRequires:	alsa-lib-devel
 BuildRequires:	asciidoc
 BuildRequires:	bash
 BuildRequires:	libconfuse-devel
-BuildRequires:	libnl-devel
+BuildRequires:	libnl-devel >= 3.0
 BuildRequires:	meson >= 0.45.0
-BuildRequires:	ninja
+BuildRequires:	ninja >= 1.5
 BuildRequires:	perl-base
 BuildRequires:	perl-tools-pod
 BuildRequires:	pkgconfig
@@ -59,6 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc CHANGELOG LICENSE README.md
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/i3status.conf
 %attr(755,root,root) %{_bindir}/i3status
 %{_mandir}/man1/i3status.1*
